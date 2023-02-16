@@ -1,6 +1,7 @@
 package ui.panes;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -13,7 +14,7 @@ public class Welcome extends JFrame {
     private JButton nextButton;
 
     // This int is going to change its value in each radio button case
-    private int selectedRadio;
+    private int selectedRadio = 999;
 
     public Welcome () {
         // This will show the main panel, that shows everything
@@ -27,7 +28,22 @@ public class Welcome extends JFrame {
         nextButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                System.out.println(selectedRadio);
+                if (selectedRadio != 999) {
+                    if (selectedRadio == 0) {
+                        Distancia distancia = new Distancia();
+                    }
+                    if (selectedRadio == 1) {
+                        Fuerza fuerza = new Fuerza();
+                    }
+                    if (selectedRadio == 2) {
+                        Carga carga = new Carga();
+                    }
+                    setVisible(false);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Seleccione una opción válida");
+                    setVisible(false);
+                    Welcome welcome = new Welcome();
+                }
             }
         });
 
