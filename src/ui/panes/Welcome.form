@@ -81,9 +81,9 @@
   </grid>
   <buttonGroups>
     <group name="selectButtonGroup">
-      <member id="75c7c"/>
       <member id="f661a"/>
       <member id="3bef3"/>
+      <member id="75c7c"/>
     </group>
   </buttonGroups>
 </form>
