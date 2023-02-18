@@ -58,6 +58,9 @@ public class Distancia extends JFrame {
          * of the inputs are really numbers and not letter or other special characters, if there are no special characters,
          * will cal the function to calculate q1 to q2 distance, and show it with a JOptionPane
          *
+         * If q3 is non-empty, will call another function that will calculate the distance between q1 and q2
+         * and q2 and q3 and will show it with a JOptionPane
+         *
          * @author Ricardo Soriano
          */
         calculateButton.addMouseListener(new MouseAdapter() {
