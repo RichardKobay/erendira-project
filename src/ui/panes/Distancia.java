@@ -21,6 +21,7 @@ public class Distancia extends JFrame {
     private double q2Value = 0;
     private double q3Value = 0;
     private double forceValue = 0;
+    private double force2Value = 0;
 
     public Distancia () {
         // This will show the main panel, that shows everything
@@ -60,7 +61,6 @@ public class Distancia extends JFrame {
          * @author Ricardo Soriano
          */
         calculateButton.addMouseListener(new MouseAdapter() {
-            // Click listener
             @Override
             public void mouseClicked(MouseEvent e) {
                 if (q3.getText().length() == 0) {
@@ -69,6 +69,19 @@ public class Distancia extends JFrame {
                         q2Value = Math.abs(Double.parseDouble(q2.getText()));
                         forceValue = Math.abs(Double.parseDouble(force.getText()));
                         q1To12Distance(q1Value, q2Value, forceValue);
+                    } catch (NumberFormatException exception) {
+                        JOptionPane.showMessageDialog(null, "Digite números válidos");
+                    }
+                }
+
+                if (!(q3.getText().length() == 0)) {
+                    try {
+                        q1Value = Math.abs(Double.parseDouble(q1.getText()));
+                        q2Value = Math.abs(Double.parseDouble(q2.getText()));
+                        q3Value = Math.abs(Double.parseDouble(q3.getText()));
+                        forceValue = Math.abs(Double.parseDouble(force.getText()));
+                        force2Value = Math.abs(Double.parseDouble(force2.getText()));
+                        q1Q2AndQ3Distance(q1Value, q2Value, q3Value, forceValue, force2Value);
                     } catch (NumberFormatException exception) {
                         JOptionPane.showMessageDialog(null, "Digite números válidos");
                     }
@@ -90,5 +103,10 @@ public class Distancia extends JFrame {
     private void q1To12Distance (double q1Value, double q2Value, double forceValue) {
         double distance = DataAndFunctions.calcDistance(q1Value, q2Value, forceValue);
         JOptionPane.showMessageDialog(null, "La distancia entre q1 y q2 es: " + distance);
+    }
+
+    private void q1Q2AndQ3Distance (double q1Value, double q2Value, double q3Value, double forceValue, double force2Value) {
+        double[] data = DataAndFunctions.calcDistance(q1Value, q2Value, q3Value, forceValue, force2Value);
+        JOptionPane.showMessageDialog(null, "La distancia entre q1 y q2 es: " + data[0] + "\nLa distancia entre q2 y q3 es: " + data[1]);
     }
 }
