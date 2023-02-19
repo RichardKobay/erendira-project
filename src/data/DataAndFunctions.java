@@ -15,7 +15,13 @@ public class DataAndFunctions {
         return new double[]{q1Toq2Distance, q2Toq3Distance};
     }
 
+    // Calculate the force between 2 charges
     public static double calcForce (double q1, double q2, double d) {
         return ((ke*q1*q2)/(Math.pow(d, 2)));
+    }
+
+    // Calculate the force between 3 charges
+    public static double calcForce (double q1, double q2, double q3, double d1, double d2) {
+        return 0.0;
     }
 }
