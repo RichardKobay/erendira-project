@@ -18,4 +18,12 @@ public class DataAndFunctions {
     public static double calcForce (double q1, double q2, double d) {
         return ((ke*q1*q2)/(Math.pow(d, 2)));
     }
+
+    public static double calcCharge (double q1, double f, double d) {
+        /*
+        * Formula:
+        * ((f * Math.pow(d, 2))/(ke * q1))
+        * */
+        return ((f * Math.pow(d, 2))/(ke * q1));
+    }
 }
