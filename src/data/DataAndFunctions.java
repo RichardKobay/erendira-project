@@ -14,4 +14,8 @@ public class DataAndFunctions {
         double q2Toq3Distance = Math.sqrt(((ke*q2*q3)/f2));
         return new double[]{q1Toq2Distance, q2Toq3Distance};
     }
+
+    public static double calcForce (double q1, double q2, double d) {
+        return ((ke*q1*q2)/(Math.pow(d, 2)));
+    }
 }

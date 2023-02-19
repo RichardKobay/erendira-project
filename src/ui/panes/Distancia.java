@@ -35,7 +35,7 @@ public class Distancia extends JFrame {
         returnButton.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                Welcome welcome = new Welcome();
+                new Welcome();
                 setVisible(false);
             }
         });
