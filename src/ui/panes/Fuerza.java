@@ -70,8 +70,8 @@ public class Fuerza extends JFrame{
             public void mouseClicked(MouseEvent e) {
                 if (q3TextField.getText().length() == 0) {
                     try {
-                        double q1Value = Math.abs(Double.parseDouble(q1TextField.getText()));
-                        double q2Value = Math.abs(Double.parseDouble(q2TextField.getText()));
+                        double q1Value = Double.parseDouble(q1TextField.getText());
+                        double q2Value = Double.parseDouble(q2TextField.getText());
                         double distance1Value = Math.abs(Double.parseDouble(distance1textField.getText()));
                         q1Toq2Force(q1Value, q2Value, distance1Value);
                     } catch (NumberFormatException exception) {
@@ -81,9 +81,9 @@ public class Fuerza extends JFrame{
 
                 if (!(q3TextField.getText().length() == 0)) {
                     try {
-                        double q1Value = Math.abs(Double.parseDouble(q1TextField.getText()));
-                        double q2Value = Math.abs(Double.parseDouble(q2TextField.getText()));
-                        double q3Value = Math.abs(Double.parseDouble(q3TextField.getText()));
+                        double q1Value = Double.parseDouble(q1TextField.getText());
+                        double q2Value = Double.parseDouble(q2TextField.getText());
+                        double q3Value = Double.parseDouble(q3TextField.getText());
                         double distance1Value = Math.abs(Double.parseDouble(distance1textField.getText()));
                         double distance2Value = Math.abs(Double.parseDouble(distance2TextField.getText()));
                         q1Toq2Toq3Force(q1Value, q2Value, q3Value, distance1Value, distance2Value);
