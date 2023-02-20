@@ -20,8 +20,52 @@ public class DataAndFunctions {
         return ((ke*q1*q2)/(Math.pow(d, 2)));
     }
 
-    // Calculate the force between 3 charges
     public static double calcForce (double q1, double q2, double q3, double d1, double d2) {
-        return 0.0;
+        double q1Toq2Force = ((ke*q1*q2)/(Math.pow(d1, 2)));
+        double q2Toq3Force = ((ke*q2*q3)/(Math.pow(d2, 2)));
+
+        double res = 0;
+
+        if ((q1 > 0) && (q2 > 0) && (q3 > 0)) {
+            res = q1Toq2Force - q2Toq3Force;
+        }
+
+        if ((q1 > 0) && (q2 < 0) && (q3 > 0)) {
+            res = q1Toq2Force - q2Toq3Force;
+        }
+
+        if ((q1 > 0) && (q2 > 0) && (q3 < 0)) {
+            res = q1Toq2Force + q2Toq3Force;
+        }
+
+        if ((q1 > 0) && (q2 < 0) && (q3 < 0)) {
+            res = q1Toq2Force + q2Toq3Force;
+        }
+
+        if ((q1 < 0) && (q2 > 0) && (q3 > 0)) {
+            res = q1Toq2Force + q2Toq3Force;
+        }
+
+        if ((q1 < 0) && (q2 < 0) && (q3 > 0)) {
+            res = q1Toq2Force + q2Toq3Force;
+        }
+
+        if ((q1 < 0) && (q2 > 0) && (q3 < 0)) {
+            res = q1Toq2Force + q2Toq3Force;
+        }
+
+        if ((q1 < 0) && (q2 < 0) && (q3 < 0)) {
+            res = q1Toq2Force - q2Toq3Force;
+        }
+
+        return res;
+    }
+
+    public static double calcCharge (double q1, double f, double d) {
+        /*
+        * Formula:
+        * ((f * Math.pow(d, 2))/(ke * q1))
+        * */
+        return ((f * Math.pow(d, 2))/(ke * q1));
     }
 }

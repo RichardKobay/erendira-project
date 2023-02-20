@@ -85,12 +85,19 @@ public class Fuerza extends JFrame{
                         double q2Value = Math.abs(Double.parseDouble(q2TextField.getText()));
                         double q3Value = Math.abs(Double.parseDouble(q3TextField.getText()));
                         double distance1Value = Math.abs(Double.parseDouble(distance1textField.getText()));
-                        double distance2VAlue = Math.abs(Double.parseDouble(distance2TextField.getText()));
-                        q1q2Andq3Force(q1Value, q2Value, q3Value, distance1Value, distance2VAlue);
+                        double distance2Value = Math.abs(Double.parseDouble(distance2TextField.getText()));
+                        q1Toq2Toq3Force(q1Value, q2Value, q3Value, distance1Value, distance2Value);
                     } catch (NumberFormatException exception) {
                         JOptionPane.showMessageDialog(null, "Introduzca un número válido");
                     }
                 }
+            }
+        });
+        q3TextField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyTyped(KeyEvent e) {
+                distancia2Label.setEnabled(q3TextField.isEnabled());
+                distance2TextField.setEnabled(q3TextField.isEnabled());
             }
         });
     }
@@ -101,9 +108,8 @@ public class Fuerza extends JFrame{
         JOptionPane.showMessageDialog(null, "La fuerza entre q1 y q2 es: " + force);
     }
 
-    // Calc the force of three charges and show it in a MessageDialog
-    private void q1q2Andq3Force (double q1Value, double q2Value, double q3Value, double distance1Value, double distance2Value) {
+    private void q1Toq2Toq3Force (double q1Value, double q2Value, double q3Value, double distance1Value, double distance2Value) {
         double force = DataAndFunctions.calcForce(q1Value, q2Value, q3Value, distance1Value, distance2Value);
-        JOptionPane.showMessageDialog(null, "La fuerza entre q1, q2 y q3 es: " + force);
+        JOptionPane.showMessageDialog(null, "La fuerza resultante es: " + force);
     }
 }
