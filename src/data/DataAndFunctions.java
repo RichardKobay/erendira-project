@@ -41,41 +41,21 @@ public class DataAndFunctions {
         double q1Toq2Force = Math.abs(((ke*q1*q2)/(Math.pow(d1, 2))));
         double q2Toq3Force = Math.abs(((ke*q2*q3)/(Math.pow(d2, 2))));
 
-        double res = 0;
-
-        if ((q1 > 0) && (q2 > 0) && (q3 > 0)) {
-            res = q1Toq2Force - q2Toq3Force;
+        if (q1 > 0 && q2 < 0) {
+            q1Toq2Force *= -1;
+        }
+        if (q1 < 0 && q2 > 0) {
+                q1Toq2Force *= -1;
         }
 
-        if ((q1 > 0) && (q2 < 0) && (q3 > 0)) {
-            res = q1Toq2Force - q2Toq3Force;
+        if (q2 < 0 && q3 < 0) {
+            q2Toq3Force *= -1;
+        }
+        if (q2 > 0 && q3 > 0) {
+            q2Toq3Force *= -1;
         }
 
-        if ((q1 > 0) && (q2 > 0) && (q3 < 0)) {
-            res = q1Toq2Force + q2Toq3Force;
-        }
-
-        if ((q1 > 0) && (q2 < 0) && (q3 < 0)) {
-            res = q1Toq2Force + q2Toq3Force;
-        }
-
-        if ((q1 < 0) && (q2 > 0) && (q3 > 0)) {
-            res = q1Toq2Force + q2Toq3Force;
-        }
-
-        if ((q1 < 0) && (q2 < 0) && (q3 > 0)) {
-            res = q1Toq2Force + q2Toq3Force;
-        }
-
-        if ((q1 < 0) && (q2 > 0) && (q3 < 0)) {
-            res = q1Toq2Force - q2Toq3Force;
-        }
-
-        if ((q1 < 0) && (q2 < 0) && (q3 < 0)) {
-            res = q1Toq2Force - q2Toq3Force;
-        }
-
-        return res;
+        return q1Toq2Force + q2Toq3Force;
     }
 
 
